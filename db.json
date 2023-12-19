@@ -1,0 +1,28 @@
+{
+  "fighters": [
+    {
+      "id": 1,
+      "name": "Charles Oliveira",
+      "academy": "Chute Box",
+      "category": "Peso Pena",
+      "city": "Guarujá - SP",
+      "position": "1"
+    },
+    {
+      "id": 3,
+      "name": "Ronaldo Lima",
+      "academy": "RAC ",
+      "category": "Meio Pesado",
+      "city": "São José do Rio Preto",
+      "position": "3"
+    },
+    {
+      "id": 4,
+      "name": "Rafael Semenzin",
+      "academy": "RAC SYSTEMS ",
+      "category": "Super Pesado",
+      "city": "São José do Rio Preto",
+      "position": "5"
+    }
+  ]
+}

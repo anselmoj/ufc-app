@@ -8,7 +8,7 @@ The UFC app, developed in React Native, is a CRUD tool dedicated to studies with
 
 To start the project in a development environment, you should begin by cloning this repository, switching to the main branch, and installing all dependencies:"
 ```
-git clone git@github.com:RacSystems/search-user.git
+git clone git@github.com:anselmoj/ufc-app.git
 git pull origin main
 yarn 
 ```

@@ -1,49 +1,22 @@
+<br/>
+The UFC app, developed in React Native, is a CRUD tool dedicated to studies with integration. It utilizes Redux-Saga and Json-Server to offer an optimized experience
 
-# Getting Started
+<br/>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+## 🚀 **Starting**
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+To start the project in a development environment, you should begin by cloning this repository, switching to the main branch, and installing all dependencies:"
+```
+git clone git@github.com:RacSystems/search-user.git
+git pull origin main
+yarn 
+```
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
+## 🚀 **Playground**
+To start the project, run the commands yarn start and yarn android, and initiate the json-server.
+```
 yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
 yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-## Step 3: Start Json Server
-
-```bash
-# using yarn
 yarn json-server --watch db.json
 ```

@@ -24,5 +24,25 @@
       "city": "São José do Rio Preto",
       "position": "5"
     }
+  ],
+  "works": [
+    {
+      "id": 1,
+      "title": "Estudar React",
+      "description": "Estudar os fundamentos do React.js",
+      "status": "pendente"
+    },
+    {
+      "id": 2,
+      "title": "Comprar pão",
+      "description": "Ir à padaria e comprar pão",
+      "status": "concluido"
+    },
+    {
+      "title": "Comprar açaí ",
+      "description": "pedir açaí no ifood",
+      "status": "pendente ",
+      "id": 3
+    }
   ]
 }

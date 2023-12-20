@@ -1,36 +1,36 @@
-import {useCallback} from 'react';
+import { useCallback } from 'react'
 
-import Toast from 'react-native-root-toast';
+import Toast from 'react-native-root-toast'
 
-import {useReduxDispatch} from '@hooks/useReduxDispatch';
-import {useReduxSelector} from '@hooks/useReduxSelector';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {PublicStackParamList} from '@routes/public.routes';
-import {fighterActions} from '@store/slices/fighters';
-import fighterSelectors from '@store/slices/fighters/selectors';
-import Containers from '@styles/containers';
+import { useReduxDispatch } from '@hooks/useReduxDispatch'
+import { useReduxSelector } from '@hooks/useReduxSelector'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { PublicStackParamList } from '@routes/public.routes'
+import { fighterActions } from '@store/slices/fighters'
+import fighterSelectors from '@store/slices/fighters/selectors'
+import Containers from '@styles/containers'
 
-import helpers from '@helpers/index';
+import helpers from '@helpers/index'
 
-import FighterForm, {SubmitFormData} from '../Form';
-import {Header, HeaderContent, Title} from './styles';
+import FighterForm, { SubmitFormData } from '../Form'
+import { Header, HeaderContent, Title } from './styles'
 
 const Create = () => {
-  const reduxDispatch = useReduxDispatch();
-  const isLoading = useReduxSelector(fighterSelectors.createIsLoading);
-  const navigation = useNavigation<NavigationProp<PublicStackParamList>>();
+  const reduxDispatch = useReduxDispatch()
+  const isLoading = useReduxSelector(fighterSelectors.createIsLoading)
+  const navigation = useNavigation<NavigationProp<PublicStackParamList>>()
 
   const handleLoadFighters = useCallback(() => {
     reduxDispatch(
       fighterActions.getAllRequest({
         functions: {
           errors: (err: any) => {
-            helpers.errorHandling(err);
+            helpers.errorHandling(err)
           },
         },
       }),
-    );
-  }, [reduxDispatch]);
+    )
+  }, [reduxDispatch])
 
   const handleCreateFighter = useCallback(
     (data: SubmitFormData) => {
@@ -45,16 +45,16 @@ const Create = () => {
           },
           functions: {
             success: () => {
-              Toast.show('Lutador adicionado com sucesso');
-              handleLoadFighters();
-              navigation.goBack();
+              Toast.show('Lutador adicionado com sucesso')
+              handleLoadFighters()
+              navigation.goBack()
             },
           },
         }),
-      );
+      )
     },
     [handleLoadFighters, navigation, reduxDispatch],
-  );
+  )
 
   return (
     <Containers.Main>
@@ -65,7 +65,7 @@ const Create = () => {
       </Header>
       <FighterForm isLoading={isLoading} onSubmit={handleCreateFighter} />
     </Containers.Main>
-  );
-};
+  )
+}
 
-export default Create;
+export default Create

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import PublicRoutes from './public.routes';
+import PublicRoutes from './public.routes'
 
 const Routes: React.FC = () => {
-  return <PublicRoutes />;
-};
+  return <PublicRoutes />
+}
 
-export default Routes;
+export default Routes

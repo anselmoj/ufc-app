@@ -1,33 +1,33 @@
-import {createSlice} from '@reduxjs/toolkit';
-import IFighter from 'src/models/Fighter';
+import { createSlice } from '@reduxjs/toolkit'
+import IFighter from 'src/models/Fighter'
 
-import reducers from './reducers';
+import reducers from './reducers'
 
 export interface IFightersData {
   getAll: {
     config: {
-      emptyMessage: string;
-      errorMessage: string;
-      isLoading: boolean;
-    };
-    list: IFighter[];
-  };
+      emptyMessage: string
+      errorMessage: string
+      isLoading: boolean
+    }
+    list: IFighter[]
+  }
   create: {
     config: {
-      isLoading: boolean;
-    };
-  };
+      isLoading: boolean
+    }
+  }
   edit: {
     config: {
-      isLoading: boolean;
-    };
-  };
+      isLoading: boolean
+    }
+  }
   details: {
     config: {
-      isLoading: boolean;
-    };
-    data: IFighter | null;
-  };
+      isLoading: boolean
+    }
+    data: IFighter | null
+  }
 }
 
 const initialState: IFightersData = {
@@ -55,13 +55,13 @@ const initialState: IFightersData = {
       isLoading: false,
     },
   },
-};
+}
 
 const fighterSlice = createSlice({
   name: '@fighter',
   initialState,
   reducers,
-});
+})
 
-export const fighterActions = fighterSlice.actions;
-export const fighterReducers = fighterSlice.reducer;
+export const fighterActions = fighterSlice.actions
+export const fighterReducers = fighterSlice.reducer

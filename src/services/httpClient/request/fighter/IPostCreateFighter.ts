@@ -1,9 +1,9 @@
 interface IPostCreateFighter {
-  name: string;
-  category: string;
-  city: string;
-  academy: string;
-  position: string;
+  name: string
+  category: string
+  city: string
+  academy: string
+  position: string
 }
 
-export default IPostCreateFighter;
+export default IPostCreateFighter

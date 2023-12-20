@@ -1,8 +1,7 @@
 import { Draft, PayloadAction } from '@reduxjs/toolkit'
+import { IWorkData } from '../..'
 
-import { IFightersData } from '../..'
-
-export interface IDetailsFighterRequestAction {
+export interface IDetailsWorkRequestAction {
   data: {
     id: number
   }
@@ -12,8 +11,8 @@ export interface IDetailsFighterRequestAction {
 }
 
 function detailsRequest(
-  draft: Draft<IFightersData>,
-  _: PayloadAction<IDetailsFighterRequestAction>,
+  draft: Draft<IWorkData>,
+  _: PayloadAction<IDetailsWorkRequestAction>,
 ) {
   draft.details.config.isLoading = true
   draft.details.data = null

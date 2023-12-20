@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import IWork from 'src/models/Work'
 
@@ -11,6 +11,8 @@ import {
   Label,
   Title,
 } from './styles'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { PublicStackParamList } from '@routes/public.routes'
 
 interface IItemProps {
   isLoading: boolean
@@ -18,6 +20,15 @@ interface IItemProps {
 }
 
 const Item: React.FC<IItemProps> = ({ item }) => {
+  const navigation = useNavigation<NavigationProp<PublicStackParamList>>()
+
+  const handleNavigateTo = useCallback(
+    (id: number) => {
+      navigation.navigate('WorkEdit', { id })
+    },
+    [navigation],
+  )
+
   return (
     <>
       <Container>
@@ -38,7 +49,7 @@ const Item: React.FC<IItemProps> = ({ item }) => {
           </ContainerItem>
         </Content>
 
-        <ContainerEdit>
+        <ContainerEdit onPress={() => handleNavigateTo(item.id)}>
           <Title>Editar tarefa</Title>
         </ContainerEdit>
       </Container>

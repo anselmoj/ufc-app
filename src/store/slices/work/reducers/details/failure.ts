@@ -1,8 +1,7 @@
 import { Draft } from '@reduxjs/toolkit'
+import { IWorkData } from '../..'
 
-import { IFightersData } from '../..'
-
-function detailsFailure(draft: Draft<IFightersData>) {
+function detailsFailure(draft: Draft<IWorkData>) {
   draft.details.config.isLoading = false
 }
 

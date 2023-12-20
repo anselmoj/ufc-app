@@ -8,6 +8,7 @@ import Player from '@pages/Player/List'
 import Team from '@pages/Team/List'
 import Work from '@pages/Work/List'
 import WorkCreate from '@pages/Work/List/Create'
+import WorkEdit from '@pages/Work/List/Edit'
 
 import { RouteProp } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -23,11 +24,19 @@ export type PublicStackParamList = {
   }
   Work: undefined
   WorkCreate: undefined
+  WorkEdit: {
+    id: number
+  }
 }
 
 export type FighterEditScreenRouteProp = RouteProp<
   PublicStackParamList,
   'FighterEdit'
+>
+
+export type WorkEditScreenRouteProp = RouteProp<
+  PublicStackParamList,
+  'WorkEdit'
 >
 
 const PublicStack = createNativeStackNavigator<PublicStackParamList>()
@@ -47,6 +56,7 @@ const PublicRoutes: React.FC = () => {
       <PublicStack.Screen component={FighterEdit} name="FighterEdit" />
       <PublicStack.Screen component={Work} name="Work" />
       <PublicStack.Screen component={WorkCreate} name="WorkCreate" />
+      <PublicStack.Screen component={WorkEdit} name="WorkEdit" />
     </PublicStack.Navigator>
   )
 }

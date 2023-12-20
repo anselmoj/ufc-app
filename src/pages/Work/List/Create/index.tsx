@@ -46,7 +46,7 @@ const WorkCreate = () => {
         }),
       )
     },
-    [navigation, reduxDispatch],
+    [handleLoadWorks, navigation, reduxDispatch],
   )
 
   return (

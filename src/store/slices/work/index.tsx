@@ -17,6 +17,17 @@ export interface IWorkData {
       isLoading: boolean
     }
   }
+  edit: {
+    config: {
+      isLoading: boolean
+    }
+  }
+  details: {
+    config: {
+      isLoading: boolean
+    }
+    data: IWork | null
+  }
 }
 
 const initialState: IWorkData = {
@@ -32,6 +43,17 @@ const initialState: IWorkData = {
     config: {
       isLoading: false,
     },
+  },
+  edit: {
+    config: {
+      isLoading: false,
+    },
+  },
+  details: {
+    config: {
+      isLoading: false,
+    },
+    data: null,
   },
 }
 

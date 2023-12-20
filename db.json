@@ -39,10 +39,10 @@
       "status": "concluido"
     },
     {
-      "title": "Comprar açaí ",
+      "id": 3,
       "description": "pedir açaí no ifood",
       "status": "pendente ",
-      "id": 3
+      "title": "Comprar açai"
     }
   ]
 }

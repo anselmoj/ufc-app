@@ -1,33 +1,33 @@
-import {useCallback, useEffect} from 'react';
+import { useCallback, useEffect } from 'react'
 
-import Toast from 'react-native-root-toast';
+import Toast from 'react-native-root-toast'
 
-import {useReduxDispatch} from '@hooks/useReduxDispatch';
-import {useReduxSelector} from '@hooks/useReduxSelector';
+import { useReduxDispatch } from '@hooks/useReduxDispatch'
+import { useReduxSelector } from '@hooks/useReduxSelector'
 import {
   NavigationProp,
   useNavigation,
   useRoute,
-} from '@react-navigation/native';
+} from '@react-navigation/native'
 import {
   FighterEditScreenRouteProp,
   PublicStackParamList,
-} from '@routes/public.routes';
-import {fighterActions} from '@store/slices/fighters';
-import fighterSelectors from '@store/slices/fighters/selectors';
-import Containers from '@styles/containers';
+} from '@routes/public.routes'
+import { fighterActions } from '@store/slices/fighters'
+import fighterSelectors from '@store/slices/fighters/selectors'
+import Containers from '@styles/containers'
 
-import helpers from '@helpers/index';
+import helpers from '@helpers/index'
 
-import FighterForm, {SubmitFormData} from '../Form';
-import {Header, HeaderContent, Title} from './styles';
+import FighterForm, { SubmitFormData } from '../Form'
+import { Header, HeaderContent, Title } from './styles'
 
 const Edit = () => {
-  const reduxDispatch = useReduxDispatch();
-  const route = useRoute<FighterEditScreenRouteProp>();
-  const isLoading = useReduxSelector(fighterSelectors.editIsLoading);
-  const navigation = useNavigation<NavigationProp<PublicStackParamList>>();
-  const fighter = useReduxSelector(fighterSelectors.details);
+  const reduxDispatch = useReduxDispatch()
+  const route = useRoute<FighterEditScreenRouteProp>()
+  const isLoading = useReduxSelector(fighterSelectors.editIsLoading)
+  const navigation = useNavigation<NavigationProp<PublicStackParamList>>()
+  const fighter = useReduxSelector(fighterSelectors.details)
 
   const loadFighterInfo = useCallback(() => {
     reduxDispatch(
@@ -37,30 +37,30 @@ const Edit = () => {
         },
         functions: {
           error: (err: any) => {
-            helpers.errorHandling(err);
+            helpers.errorHandling(err)
           },
         },
       }),
-    );
-  }, [reduxDispatch, route.params.id]);
+    )
+  }, [reduxDispatch, route.params.id])
 
   const handleLoadFighters = useCallback(() => {
     reduxDispatch(
       fighterActions.getAllRequest({
         functions: {
           errors: (err: any) => {
-            helpers.errorHandling(err);
+            helpers.errorHandling(err)
           },
         },
       }),
-    );
-  }, [reduxDispatch]);
+    )
+  }, [reduxDispatch])
 
   const handleEditFighter = useCallback(
     (data: SubmitFormData): void => {
       try {
         if (!fighter) {
-          throw new Error('Error::Edit::fighter');
+          throw new Error('Error::Edit::fighter')
         }
         reduxDispatch(
           fighterActions.editRequest({
@@ -74,23 +74,23 @@ const Edit = () => {
             },
             functions: {
               success: () => {
-                Toast.show('Lutador editado com sucesso');
-                handleLoadFighters();
-                navigation.goBack();
+                Toast.show('Lutador editado com sucesso')
+                handleLoadFighters()
+                navigation.goBack()
               },
             },
           }),
-        );
+        )
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     },
     [fighter, handleLoadFighters, navigation, reduxDispatch],
-  );
+  )
 
   useEffect(() => {
-    loadFighterInfo();
-  }, [loadFighterInfo]);
+    loadFighterInfo()
+  }, [loadFighterInfo])
 
   return (
     <Containers.Main>
@@ -111,7 +111,7 @@ const Edit = () => {
         onSubmit={handleEditFighter}
       />
     </Containers.Main>
-  );
-};
+  )
+}
 
-export default Edit;
+export default Edit

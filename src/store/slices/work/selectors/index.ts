@@ -1,4 +1,6 @@
 import crateIsLoading from './createIsLoading'
+import details from './details'
+import editIsLoading from './editIsLoading'
 import getAllEmptyMessage from './getAllEmptyMessage'
 import getAllErrorMessage from './getAllErrorMessage'
 import getAllIsLoading from './getAllIsLoading'
@@ -10,6 +12,8 @@ const workSelectors = {
   getAllEmptyMessage,
   getAllErrorMessage,
   crateIsLoading,
+  editIsLoading,
+  details,
 }
 
 export default workSelectors

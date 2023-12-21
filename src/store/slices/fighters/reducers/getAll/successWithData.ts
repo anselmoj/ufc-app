@@ -1,18 +1,18 @@
-import {Draft, PayloadAction} from '@reduxjs/toolkit';
-import IFighter from 'src/models/Fighter';
+import { Draft, PayloadAction } from '@reduxjs/toolkit'
+import IFighter from 'src/models/Fighter'
 
-import {IFightersData} from '../..';
+import { IFightersData } from '../..'
 
 export interface IGetAllSuccessWithDataAction {
-  list: IFighter[];
+  list: IFighter[]
 }
 
 function getAllSuccessWithData(
   draft: Draft<IFightersData>,
   action: PayloadAction<IGetAllSuccessWithDataAction>,
 ) {
-  draft.getAll.config.isLoading = false;
-  draft.getAll.list = action.payload.list;
+  draft.getAll.config.isLoading = false
+  draft.getAll.list = action.payload.list
 }
 
-export default getAllSuccessWithData;
+export default getAllSuccessWithData

@@ -2,35 +2,43 @@
   "fighters": [
     {
       "id": 1,
-      "name": "Charles Oliveira",
-      "academy": "Chute Box",
-      "category": "Peso Pena",
-      "city": "Guarujá - SP",
-      "position": "1"
+      "name": "Charles \"Do Bronx\" Oliveira",
+      "academy": "Chute Boxe Diego LimaGold Team",
+      "category": "Peso Leve",
+      "city": "Guarujá - Brasil ",
+      "ranking": "2",
+      "age": "34",
+      "defeats": "9",
+      "finalization": "21",
+      "height": "1.78M",
+      "ko": "10",
+      "titleDefense": "4",
+      "weight": "69kg",
+      "wins": "32"
     },
     {
-      "id": 3,
-      "name": "Ronaldo Lima",
-      "academy": "RAC ",
-      "category": "Meio Pesado",
-      "city": "São José do Rio Preto",
-      "position": "3"
-    },
-    {
-      "id": 4,
-      "name": "Rafael Semenzin",
-      "academy": "RAC SYSTEMS ",
-      "category": "Super Pesado",
-      "city": "São José do Rio Preto",
-      "position": "5"
+      "id": 2,
+      "name": "Islam Makhachev",
+      "academy": "Eagles Team",
+      "category": "Peso Leve",
+      "city": "Mahackala - Russia",
+      "ranking": "1",
+      "age": "32",
+      "defeats": "1",
+      "finalization": "11",
+      "height": "1.78M",
+      "ko": "5",
+      "titleDefense": "2",
+      "weight": "70",
+      "wins": "25"
     }
   ],
   "works": [
     {
       "id": 1,
-      "title": "Estudar React",
-      "description": "Estudar os fundamentos do React.js",
-      "status": "pendente"
+      "description": "Estudar ",
+      "status": "pendente",
+      "title": "Estudar React"
     },
     {
       "id": 2,

@@ -4,8 +4,32 @@ import { TouchableOpacityProps } from 'react-native'
 
 import colors from '@styles/colors'
 
+export const Header = styled.View`
+  background-color: ${colors.white200};
+  justify-content: center;
+  padding: 44px 0 16px 0;
+  width: 100%;
+`;
+
+export const HeaderContent = styled.View`
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const HeaderTitle = styled.Text`
+  color: ${colors.purple600};
+  font-family: 'Roboto-Medium';
+  font-size: 16px;
+  line-height: 16px;
+  padding-left: 8px;
+  text-align: center;
+`;
+
+
+
 export const Container = styled.View`
-  padding: 24px 8px 0 8px;
+  padding: 4px 8px 0 8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,15 +50,6 @@ export const Title = styled.Text`
   display: flex;
   font-weight: 600;
 `
-
-export const TitleDetails = styled.Text`
-  color: ${colors.gray500};
-  justify-content: flex-start;
-  align-items: center;
-  display: flex;
-  font-weight: 600;
-`
-
 
 export const MainContainer = styled.View`
   display: flex;
@@ -66,6 +81,4 @@ export const ContainerDetails = styled.TouchableOpacity.attrs<TouchableOpacityPr
     activeOpacity: 0.7,
   },
 )`
-  margin-bottom: 8px;
-
 `

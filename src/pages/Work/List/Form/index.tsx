@@ -122,7 +122,7 @@ const WorkForm = ({ initialData, isLoading, onSubmit }: IProps) => {
         <Container keyboardSpace={keyboardSpace}>
           <Containers.Scroll>
             <Form>
-              <InputContainer width="48%">
+              <InputContainer width="47%">
                 <ComponentInputBase
                   autoCapitalize="none"
                   autoComplete="off"
@@ -140,7 +140,7 @@ const WorkForm = ({ initialData, isLoading, onSubmit }: IProps) => {
                 />
               </InputContainer>
 
-              <InputContainer width="48%">
+              <InputContainer width="47%">
                 <ComponentInputBase
                   autoCapitalize="none"
                   autoComplete="off"

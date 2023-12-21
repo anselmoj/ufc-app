@@ -40,8 +40,16 @@ const Create = () => {
             academy: data.academy,
             category: data.category,
             city: data.city,
-            position: data.position,
+            ranking: data.ranking,
             name: data.name,
+            age: data.age,
+            defeats: data.defeats,
+            finalization: data.finalization,
+            height: data.height,
+            ko: data.ko,
+            titleDefense: data.titleDefense,
+            weight: data.weight,
+            wins: data.wins,
           },
           functions: {
             success: () => {

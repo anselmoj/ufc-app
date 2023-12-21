@@ -1,9 +1,9 @@
-import {Draft} from '@reduxjs/toolkit';
+import { Draft } from '@reduxjs/toolkit'
 
-import {IFightersData} from '../..';
+import { IFightersData } from '../..'
 
 function createSuccess(draft: Draft<IFightersData>) {
-  draft.create.config.isLoading = false;
+  draft.create.config.isLoading = false
 }
 
-export default createSuccess;
+export default createSuccess

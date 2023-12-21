@@ -1,7 +1,7 @@
-import {ReduxStore} from '@store/types';
+import { ReduxStore } from '@store/types'
 
 function getAllEmptyMessage(state: ReduxStore): string {
-  return state.fighter.getAll.config.emptyMessage;
+  return state.fighter.getAll.config.emptyMessage
 }
 
-export default getAllEmptyMessage;
+export default getAllEmptyMessage

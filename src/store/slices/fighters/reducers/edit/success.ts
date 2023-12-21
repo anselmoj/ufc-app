@@ -1,9 +1,9 @@
-import {Draft} from '@reduxjs/toolkit';
+import { Draft } from '@reduxjs/toolkit'
 
-import {IFightersData} from '../..';
+import { IFightersData } from '../..'
 
 function editSuccess(draft: Draft<IFightersData>) {
-  draft.edit.config.isLoading = false;
+  draft.edit.config.isLoading = false
 }
 
-export default editSuccess;
+export default editSuccess

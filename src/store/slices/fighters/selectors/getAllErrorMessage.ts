@@ -1,7 +1,7 @@
-import {ReduxStore} from '@store/types';
+import { ReduxStore } from '@store/types'
 
 function getAllErrorMessage(state: ReduxStore): string {
-  return state.fighter.getAll.config.errorMessage;
+  return state.fighter.getAll.config.errorMessage
 }
 
-export default getAllErrorMessage;
+export default getAllErrorMessage

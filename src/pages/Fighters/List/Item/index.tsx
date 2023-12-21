@@ -7,11 +7,13 @@ import IFighter from 'src/models/Fighter'
 
 import {
   Container,
+  ContainerDetails,
   ContainerEdit,
   ContainerItem,
   Content,
   Label,
   Title,
+  TitleDetails,
 } from './styles'
 
 interface IItemProps {
@@ -22,9 +24,16 @@ interface IItemProps {
 const Item: React.FC<IItemProps> = ({ item }) => {
   const navigation = useNavigation<NavigationProp<PublicStackParamList>>()
 
-  const handleNavigateTo = useCallback(
+  const handleNavigateToEdit = useCallback(
     (id: number) => {
       navigation.navigate('FighterEdit', { id })
+    },
+    [navigation],
+  )
+
+  const handleNavigateToDetails = useCallback(
+    (id: number) => {
+      navigation.navigate('FighterDetails', { id })
     },
     [navigation],
   )
@@ -45,11 +54,11 @@ const Item: React.FC<IItemProps> = ({ item }) => {
 
           <ContainerItem>
             <Label>Ranking:</Label>
-            <Title>{item.position}º</Title>
+            <Title>{item.ranking}º</Title>
           </ContainerItem>
 
           <ContainerItem>
-            <Label>Academia:</Label>
+            <Label>Time:</Label>
             <Title>{item.academy}</Title>
           </ContainerItem>
 
@@ -57,11 +66,17 @@ const Item: React.FC<IItemProps> = ({ item }) => {
             <Label>Cidade:</Label>
             <Title>{item.city}</Title>
           </ContainerItem>
+
+          <ContainerDetails onPress={() => handleNavigateToDetails(item.id)}>
+            <TitleDetails>Detalhes</TitleDetails>
+          </ContainerDetails>
         </Content>
 
-        <ContainerEdit onPress={() => handleNavigateTo(item.id)}>
+        <ContainerEdit onPress={() => handleNavigateToEdit(item.id)}>
           <Title>Editar lutador</Title>
         </ContainerEdit>
+        
+     
       </Container>
     </>
   )

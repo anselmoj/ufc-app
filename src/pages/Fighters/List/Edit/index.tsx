@@ -69,8 +69,16 @@ const Edit = () => {
               academy: data.academy,
               category: data.category,
               city: data.city,
-              position: data.position,
+              ranking: data.ranking,
               name: data.name,
+              age: data.age,
+              defeats: data.defeats,
+              finalization: data.finalization,
+              height: data.height,
+              ko: data.ko,
+              titleDefense: data.titleDefense,
+              weight: data.weight,
+              wins: data.wins,
             },
             functions: {
               success: () => {
@@ -105,7 +113,17 @@ const Edit = () => {
           category: fighter?.category || '',
           city: fighter?.city || '',
           name: fighter?.name || '',
-          position: fighter?.position || '',
+          ranking: fighter?.ranking || '',
+          age: fighter?.age || '',
+          defeats: fighter?.defeats || '',
+          finalization: fighter?.finalization || '',
+          height: fighter?.height || '',
+          ko: fighter?.ko || '',
+          titleDefense: fighter?.titleDefense || '',
+          weight: fighter?.weight || '',
+          wins: fighter?.wins || '',
+
+
         }}
         isLoading={isLoading}
         onSubmit={handleEditFighter}

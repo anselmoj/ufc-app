@@ -1,7 +1,7 @@
-import {ReduxStore} from '@store/types';
+import { ReduxStore } from '@store/types'
 
 function editIsLoading(state: ReduxStore): boolean {
-  return state.fighter.edit.config.isLoading;
+  return state.fighter.edit.config.isLoading
 }
 
-export default editIsLoading;
+export default editIsLoading

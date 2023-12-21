@@ -55,6 +55,22 @@ export const OptionsButton = styled.TouchableOpacity.attrs<TouchableOpacityProps
     },
   },
 )`
+  align-items: flex-end;
+  right: 20px;
+`
+
+export const Button = styled.TouchableOpacity.attrs<
+  unknown,
+  TouchableOpacityProps
+>({
+  activeOpacity: 0.75,
+  hitSlop: {
+    bottom: 15,
+    left: 15,
+    right: 15,
+    top: 15,
+  },
+})`
   align-items: center;
-  justify-content: center;
+  justify-content: end;
 `

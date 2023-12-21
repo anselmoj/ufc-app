@@ -7,9 +7,17 @@ export interface IDetailsSuccessAction {
     id: number
     name: string
     category: string
-    academy: string
-    position: string
     city: string
+    academy: string
+    ranking: string
+    age: string
+    height: string
+    weight: string
+    wins: string
+    defeats: string
+    finalization: string
+    ko: string
+    titleDefense: string
   }
 }
 
@@ -24,7 +32,15 @@ function detailsSuccess(
     city: action.payload.data.city,
     id: action.payload.data.id,
     name: action.payload.data.name,
-    position: action.payload.data.position,
+    ranking: action.payload.data.ranking,
+    age: action.payload.data.age,
+    defeats: action.payload.data.defeats,
+    finalization: action.payload.data.finalization,
+    height: action.payload.data.height,
+    ko: action.payload.data.ko,
+    titleDefense: action.payload.data.titleDefense,
+    weight: action.payload.data.weight,
+    wins: action.payload.data.wins,
   }
 }
 

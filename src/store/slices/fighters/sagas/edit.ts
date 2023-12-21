@@ -17,7 +17,15 @@ function* edit(action: PayloadAction<IEditFighterRequestAction>) {
       academy: action.payload.data.academy,
       category: action.payload.data.category,
       city: action.payload.data.city,
-      position: action.payload.data.position,
+      ranking: action.payload.data.ranking,
+      age: action.payload.data.age,
+      defeats: action.payload.data.defeats,
+      finalization: action.payload.data.finalization,
+      height: action.payload.data.height,
+      ko: action.payload.data.ko,
+      titleDefense: action.payload.data.titleDefense,
+      weight: action.payload.data.weight,
+      wins: action.payload.data.wins,
     }
 
     yield call(

@@ -6,15 +6,29 @@ import colors from '@styles/colors'
 
 export const Header = styled.View`
   background-color: ${colors.white200};
-  justify-content: center;
   padding: 44px 0 16px 0;
   width: 100%;
+  flex-direction: row;
+
 `;
 
-export const HeaderContent = styled.View`
+export const IconContent = styled.TouchableOpacity.attrs<TouchableOpacityProps>(
+  {
+    activeOpacity: 0.7,
+  },
+)`
   align-items: center;
+  display: flex;
   flex-direction: row;
+  margin-left: 16px;
+  justify-content: flex-start;
+`
+
+
+
+export const HeaderContent = styled.View`
   justify-content: center;
+  display: flex;
 `;
 
 export const HeaderTitle = styled.Text`
@@ -59,12 +73,13 @@ export const MainContainer = styled.View`
 export const Content = styled.View`
   display: flex;
   flex-direction: column;
+
 `
 
 export const ContainerItem = styled.View`
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  gap: 8px;
   margin-bottom: 10px;
 `
 

@@ -28,6 +28,12 @@ export interface IWorkData {
     }
     data: IWork | null
   }
+  filter: {
+    search: {
+      title?: string;
+      status?: string;
+    };
+  };
 }
 
 const initialState: IWorkData = {
@@ -54,6 +60,12 @@ const initialState: IWorkData = {
       isLoading: false,
     },
     data: null,
+  },
+  filter: {
+    search: {
+      status: undefined,
+      title: undefined,
+    },
   },
 }
 

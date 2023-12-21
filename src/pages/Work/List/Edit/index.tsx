@@ -1,5 +1,5 @@
 import Containers from '@styles/containers'
-import { Header, HeaderContent, Title } from './styles'
+import { Header, HeaderContent, IconContent, Title } from './styles'
 import WorkForm, { SubmitFormData } from '../Form'
 import { useReduxDispatch } from '@hooks/useReduxDispatch'
 import { useCallback, useEffect } from 'react'
@@ -9,14 +9,23 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { useReduxSelector } from '@hooks/useReduxSelector'
 import workSelectors from '@store/slices/work/selectors'
 import helpers from '@helpers/index'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
+
 import { WorkEditScreenRouteProp } from '@routes/public.routes'
+import colors from '@styles/colors'
 
 const WorkEdit = () => {
   const reduxDispatch = useReduxDispatch()
   const navigation = useNavigation()
   const route = useRoute<WorkEditScreenRouteProp>()
   const work = useReduxSelector(workSelectors.details)
+  const status = useReduxSelector(workSelectors.filterSearchStatus)
+  const title = useReduxSelector(workSelectors.filterSearchTitle)
   const isLoading = useReduxSelector(workSelectors.editIsLoading)
+
+  const handleGoBack = useCallback(() => {
+    navigation.goBack()
+  }, [navigation])
 
   const handleWorkInfo = useCallback(() => {
     reduxDispatch(
@@ -36,6 +45,10 @@ const WorkEdit = () => {
   const handleLoadWorks = useCallback(() => {
     reduxDispatch(
       workActions.getAllRequest({
+        data: {
+          status: status ?? undefined,
+          title: title ?? undefined,
+        },
         functions: {
           errors: (err: any) => {
             helpers.errorHandling(err)
@@ -82,6 +95,9 @@ const WorkEdit = () => {
   return (
     <Containers.Main>
       <Header>
+        <IconContent onPress={() => handleGoBack()}>
+          <EvilIcons color={colors.blue500} name='arrow-left' size={32} />
+        </IconContent>
         <HeaderContent>
           <Title>Editar tarefa</Title>
         </HeaderContent>

@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 
 import Toast from 'react-native-root-toast'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 import { useReduxDispatch } from '@hooks/useReduxDispatch'
 import { useReduxSelector } from '@hooks/useReduxSelector'
@@ -13,12 +14,17 @@ import Containers from '@styles/containers'
 import helpers from '@helpers/index'
 
 import FighterForm, { SubmitFormData } from '../Form'
-import { Header, HeaderContent, Title } from './styles'
+import { Header, HeaderContent, IconContent, Title } from './styles'
+import colors from '@styles/colors'
 
 const Create = () => {
   const reduxDispatch = useReduxDispatch()
   const isLoading = useReduxSelector(fighterSelectors.createIsLoading)
   const navigation = useNavigation<NavigationProp<PublicStackParamList>>()
+
+  const handleGoBack = useCallback(() => {
+    navigation.goBack()
+  }, [navigation])
 
   const handleLoadFighters = useCallback(() => {
     reduxDispatch(
@@ -67,6 +73,9 @@ const Create = () => {
   return (
     <Containers.Main>
       <Header>
+        <IconContent onPress={() => handleGoBack()}>
+          <EvilIcons color={colors.blue500} name='arrow-left' size={32} />
+        </IconContent>
         <HeaderContent>
           <Title>Criação do lutador</Title>
         </HeaderContent>

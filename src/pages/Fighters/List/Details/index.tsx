@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useCallback, useEffect } from 'react'
-
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   Header,
   HeaderContent,
   HeaderTitle,
+  IconContent,
   Label,
   Title,
 } from './styles'
@@ -17,9 +18,10 @@ import { useReduxSelector } from '@hooks/useReduxSelector'
 import fighterSelectors from '@store/slices/fighters/selectors'
 import { useReduxDispatch } from '@hooks/useReduxDispatch'
 import { fighterActions } from '@store/slices/fighters'
-import { useRoute } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import { FighterDetailsScreenRouteProp } from '@routes/public.routes'
 import helpers from '@helpers/index'
+import colors from '@styles/colors'
 
 
 
@@ -27,6 +29,11 @@ const FighterDetails: React.FC = () => {
   const reduxDispatch = useReduxDispatch()
   const details = useReduxSelector(fighterSelectors.details)
   const route = useRoute<FighterDetailsScreenRouteProp>()
+  const navigation = useNavigation()
+
+  const handleGoBack = useCallback(() => {
+    navigation.goBack()
+  }, [navigation])
 
 
   const handleLoadDetails = useCallback(() => {
@@ -51,6 +58,9 @@ const FighterDetails: React.FC = () => {
   return (
     <>
        <Header>
+          <IconContent onPress={() => handleGoBack()}>
+            <EvilIcons color={colors.blue500} name='arrow-left' size={32} />
+          </IconContent>
         <HeaderContent>
           <HeaderTitle>Detalhes do lutador</HeaderTitle>
         </HeaderContent>
@@ -69,7 +79,7 @@ const FighterDetails: React.FC = () => {
 
           <ContainerItem>
             <Label>Peso:</Label>
-            <Title>{details?.weight}</Title>
+            <Title>{details?.weight}kg</Title>
           </ContainerItem>
 
           <ContainerItem>

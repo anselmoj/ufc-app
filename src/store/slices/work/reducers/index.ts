@@ -11,6 +11,7 @@ import getAllFailure from './getAll/failure'
 import getAllRequest from './getAll/request'
 import getAllSuccessWithData from './getAll/successWithData'
 import getAllSuccessWithoutData from './getAll/successWithoutData'
+import setSearch from './set/search'
 
 const reducers = {
   getAllFailure,
@@ -26,6 +27,7 @@ const reducers = {
   detailsFailure,
   detailsRequest,
   detailsSuccess,
+  setSearch,
 }
 
 export default reducers

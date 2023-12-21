@@ -5,6 +5,10 @@ import { Draft, PayloadAction } from '@reduxjs/toolkit'
 import { IWorkData } from '../..'
 
 export interface IGetAllWorkRequestAction {
+  data: {
+    title: string | undefined 
+    status: string | undefined
+  }
   functions: {
     errors: (err: any) => void
   }

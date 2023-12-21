@@ -9,13 +9,13 @@ import Utils from '@styles/utils'
 import Feather from 'react-native-vector-icons/Feather'
 import ComponentError from '@components/utils/Error'
 import ComponentIsVisible from '@components/utils/IsVisible'
-
+ 
 import helpers from '@helpers/index'
 
 import Empty from './Empty'
 import Item from './Item'
 import { dataLoading, IDataLoading } from './Loading'
-import { Button, ButtonContainer, FullButton, FullButtonText, OptionsButton } from './styles'
+import { ButtonContainer, FullButton, FullButtonText, OptionsButton } from './styles'
 import workSelectors from '@store/slices/work/selectors'
 import { workActions } from '@store/slices/work'
 import IWork from 'src/models/Work'
@@ -31,6 +31,9 @@ const List: React.FC = () => {
   const emptyMessage = useReduxSelector(workSelectors.getAllEmptyMessage)
   const works = useReduxSelector(workSelectors.getAllList)
   const isLoading = useReduxSelector(workSelectors.getAllIsLoading)
+  const status = useReduxSelector(workSelectors.filterSearchStatus)
+  const title = useReduxSelector(workSelectors.filterSearchTitle)
+
   const filterRef = useRef<IFilterRefProps>(null)
 
   const handleCreateWork = useCallback(() => {
@@ -44,6 +47,10 @@ const List: React.FC = () => {
   const handleLoadWork = useCallback(() => {
     reduxDispatch(
       workActions.getAllRequest({
+        data: {
+          status: status ?? undefined,
+          title: title ?? undefined,
+        },
         functions: {
           errors: (err: any) => {
             helpers.errorHandling(err)
@@ -51,7 +58,7 @@ const List: React.FC = () => {
         },
       }),
     )
-  }, [reduxDispatch])
+  }, [reduxDispatch, title, status])
 
   useEffect(() => {
     handleLoadWork()

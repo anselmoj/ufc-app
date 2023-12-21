@@ -31,30 +31,32 @@ import {
 } from './styles'
 import { useReduxSelector } from '@hooks/useReduxSelector'
 import workSelectors from '@store/slices/work/selectors'
+import { useReduxDispatch } from '@hooks/useReduxDispatch'
+import { workActions } from '@store/slices/work'
 
 export interface IFilterFormData {
   title: string
   status: string
 }
 
-type ISubmitFormData = Required<IFilterFormData>
-
 export interface IFilterRefProps {
   close: () => void
   open: () => void
+
 }
 
 const Filter: React.ForwardRefRenderFunction<IFilterRefProps> = (_, ref) => {
   const insets = useSafeAreaInsets()
   const componentModalBaseRef = useRef<IComponentModalBaseRefProps>(null)
   const isLoading = useReduxSelector(workSelectors.getAllIsLoading)
+  const reduxDispatch = useReduxDispatch()
 
   const inputTitleRef = useRef<IInputBaseRefProps>(null)
   const inputStatusRef = useRef<IInputBaseRefProps>(null)
 
   function getFormData(): IFilterFormData {
     if (!inputTitleRef.current) {
-      throw new Error('Error::WorkForm::inputTitleRef')
+      throw new Error('Error::WorkForm::inputTitleRef') 
     }
     if (!inputStatusRef.current) {
       throw new Error('Error::WorkForm::inputStatusRef')
@@ -64,6 +66,20 @@ const Filter: React.ForwardRefRenderFunction<IFilterRefProps> = (_, ref) => {
       status: inputStatusRef.current.getValue(),
     }
   }
+
+  const handleSubmit = useCallback((event: FormEvent) => {
+    event.preventDefault()
+    const formData = getFormData()
+    reduxDispatch(
+      workActions.setSearch({
+        data: {
+          status: formData.status,
+          title: formData.title,
+        },
+      })
+    )
+  }, [])
+
 
   const openModal = useCallback(() => {
     componentModalBaseRef.current?.open()
@@ -121,6 +137,7 @@ const Filter: React.ForwardRefRenderFunction<IFilterRefProps> = (_, ref) => {
                 disabled={isLoading}
                 isLoading={false}
                 width={45}
+                onPress={handleSubmit}
               >
                 Buscar
               </ComponentButtonBase>

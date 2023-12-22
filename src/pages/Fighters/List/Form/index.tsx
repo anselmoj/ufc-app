@@ -10,7 +10,6 @@ import ComponentButtonBase from '@components/button/Base'
 import ComponentInputBase, { IInputBaseRefProps } from '@components/input/Base'
 
 import getValidationErrors from '@helpers/getValidationErrors'
-
 import { ButtonContainer, Container, Form, InputContainer } from './styles'
 
 interface IFormData {
@@ -213,6 +212,7 @@ const FighterForm = ({ initialData, isLoading, onSubmit }: IProps) => {
     navigation.goBack()
   }, [navigation])
 
+
   useEffect(() => {
     if (isLoading) {
       return
@@ -347,7 +347,7 @@ const FighterForm = ({ initialData, isLoading, onSubmit }: IProps) => {
                 />
               </InputContainer>
 
-              
+
               <InputContainer width="47%">
 
               <ComponentInputBase

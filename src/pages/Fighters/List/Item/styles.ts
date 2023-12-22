@@ -53,6 +53,16 @@ export const ContainerItem = styled.View`
   margin-bottom: 10px;
 `
 
+export const PhotoContainer = styled.View`
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+`;
+
+export const Photo = styled.Image`
+  width: 100%;
+`;
+
 export const ContainerEdit = styled.TouchableOpacity.attrs<TouchableOpacityProps>(
   {
     activeOpacity: 0.7,
